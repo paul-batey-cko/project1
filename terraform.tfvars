@@ -1,0 +1,7 @@
+igw-id  = "igw-6b32ed02"
+vpc-id = "vpc-e860d781"
+webserver-port = "80"
+automation_pub_ip = "18.130.45.251/32"
+my_pub_ip = "77.102.128.87/32"
+instance-type = "t2.micro"
+private_key_path = "/home/ec2-user/.ssh/id_rsa"
