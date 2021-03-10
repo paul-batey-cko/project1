@@ -1,7 +1,7 @@
 # Declare the data source
 data "aws_availability_zones" "available" {
   provider = aws.region-nginx
-  state = "available"
+  state    = "available"
 }
 
 

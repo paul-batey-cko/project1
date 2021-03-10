@@ -4,10 +4,10 @@ resource "aws_security_group" "website-sg" {
   description = "Allow TCP/80 & TCP/22 to my public IP"
   vpc_id      = var.vpc-id
   ingress {
-    description     = "allow my public IP on port 80"
-    from_port       = var.webserver-port
-    to_port         = var.webserver-port
-    protocol        = "tcp"
+    description = "allow my public IP on port 80"
+    from_port   = var.webserver-port
+    to_port     = var.webserver-port
+    protocol    = "tcp"
     cidr_blocks = [var.my_pub_ip]
   }
   ingress {
