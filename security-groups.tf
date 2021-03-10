@@ -1,5 +1,5 @@
 resource "aws_security_group" "website-sg" {
-  provider    = aws.region-web
+  provider    = aws.region-nginx
   name        = "nginx-sg"
   description = "Allow TCP/80 & TCP/22 to my public IP"
   vpc_id      = var.vpc-id

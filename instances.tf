@@ -1,5 +1,5 @@
 data "aws_ami" "alx" {
-  provider    = aws.region-web
+  provider    = aws.region-nginx
   most_recent = true
   owners      = ["amazon"]
 
