@@ -1,4 +1,4 @@
-resource "aws_security_group" "website-sg" {
+resource "aws_security_group" "nginx-sg" {
   provider    = aws.region-nginx
   name        = "nginx-sg"
   description = "Allow TCP/80 & TCP/22 to my public IP"

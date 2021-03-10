@@ -8,10 +8,10 @@ data "aws_ami" "alx" {
     values = ["amzn-ami-hvm*"]
   }
 
-  filter {
-    name   = "root-device-type"
-    values = ["ebs"]
-  }
+#  filter {
+#    name   = "root-device-type"
+#    values = ["ebs"]
+#  }
 
   filter {
     name   = "virtualization-type"
@@ -21,11 +21,11 @@ data "aws_ami" "alx" {
 
 # Create Lauch Configuration with the prefix Web-
 resource "aws_instance" "nginx" {
-  provider        = aws.region-nginx
-  image_id        = data.aws_ami.alx.id
-  instance_type   = var.instance-type
-  key_name        = var.key_name
-  security_groups = [aws_security_group.nginx-sg.id]
+  provider               = aws.region-nginx
+  ami                    = data.aws_ami.alx.id
+  instance_type          = var.instance-type
+  key_name               = var.key_name
+  vpc_security_group_ids = [aws_security_group.nginx-sg.id]
 
   connection {
     type        = "ssh"
