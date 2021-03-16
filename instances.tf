@@ -8,11 +8,6 @@ data "aws_ami" "alx" {
     values = ["amzn-ami-hvm*"]
   }
 
-#  filter {
-#    name   = "root-device-type"
-#    values = ["ebs"]
-#  }
-
   filter {
     name   = "virtualization-type"
     values = ["hvm"]
@@ -34,10 +29,16 @@ resource "aws_instance" "nginx" {
     private_key = file(var.private_key_path)
   }
 
-  provisioner "remote-exec" {
-    inline = [
-      "sudo yum install nginx -y",
-      "sudo service nginx start"
-    ]
+#  provisioner "remote-exec" {
+#    inline = [
+#      "sudo yum install nginx -y",
+#      "sudo service nginx start"
+#    ]
+#  }
+
+user_data = "${file("user-data.sh")}"
+
+  tags = {
+    Name = "NGINX-Test"
   }
 }
